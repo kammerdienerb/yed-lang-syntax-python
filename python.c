@@ -86,6 +86,10 @@ int yed_plugin_boot(yed_plugin *self) {
     buffmod.fn   = ebuffmod;
     yed_plugin_add_event_handler(self, buffmod);
 
+    line.kind = EVENT_LINE_PRE_DRAW;
+    line.fn   = eline;
+    yed_plugin_add_event_handler(self, line);
+
     high.kind = EVENT_HIGHLIGHT_REQUEST;
     high.fn   = ehigh;
     yed_plugin_add_event_handler(self, high);
